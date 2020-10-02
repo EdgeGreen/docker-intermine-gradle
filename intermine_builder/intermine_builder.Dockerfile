@@ -73,7 +73,7 @@ ENV TOMCAT_PWD="tomcat"
 ENV TOMCAT_PORT=8080
 ENV PGPORT=5432
 
-COPY ./build.sh /home/intermine
+COPY ./intermine_builder/build.sh /home/intermine
 RUN chmod a+rx /home/intermine/build.sh
 WORKDIR /home/intermine/intermine
 
