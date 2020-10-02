@@ -2,7 +2,7 @@ version: "3"
 services:
   intermine_builder:
     container_name: intermine_builder
-    image: intermine/builder:latest
+    image: edgegreen/inter-builder:latest
     user: ${UID:-1000}:${GID:-1000}
     volumes:
       # - ./data/mine/data:/home/intermine/intermine/data
@@ -16,7 +16,7 @@ services:
       - MINE_NAME=${MINE_NAME:-biotestmine}
       - MINE_REPO_URL=${MINE_REPO_URL:-}
       - IM_DATA_DIR=${IM_DATA_DIR:-DATA_DIR}
-      - MEM_OPTS=${MEM_OPTS:-"-Xmx128m -Xms128m"}
+      - MEM_OPTS=${MEM_OPTS:-"-Xmx1g -Xms200m"}
       - IM_REPO_URL=${IM_REPO_URL:-}
       - IM_REPO_BRANCH=${IM_REPO_BRANCH:-}
     depends_on: 
@@ -26,14 +26,14 @@ services:
 
   postgres:
     container_name: intermine_postgres
-    image: intermine/postgres:latest
+    image: edgegreen/inter-postgress:latest
     user: ${UID:-1000}:${GID:-1000}
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
 
   solr:
     container_name: intermine_solr
-    image: intermine/solr
+    image: edgegreen/inter-solr:latest
     environment:
       - MEM_OPTS=${MEM_OPTS:-"-Xmx128m -Xms128m"}
       - MINE_NAME=${MINE_NAME:-biotestmine}
@@ -43,7 +43,7 @@ services:
 
   tomcat:
     container_name: intermine_tomcat
-    image: intermine/tomcat
+    image: edgegreen/inter-tomcat:latest
     environment:
       - MEM_OPTS=${MEM_OPTS:-"-Xmx128m -Xms128m"}
     ports:
@@ -54,3 +54,4 @@ services:
 #   SolrDBData:
 #   MineData:
 #   MineConfigs:
+

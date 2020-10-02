@@ -7,3 +7,4 @@ EXPOSE 8983
 USER $SOLR_USER
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD /opt/scripts/intermine.sh ${MINE_NAME:-biotestmine}
+

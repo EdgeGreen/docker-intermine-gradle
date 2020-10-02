@@ -78,3 +78,4 @@ RUN chmod a+rx /home/intermine/build.sh
 WORKDIR /home/intermine/intermine
 
 CMD ["/bin/sh","/home/intermine/build.sh"]
+
