@@ -32,3 +32,4 @@ ENV JAVA_OPTS="-Xmx128m -Xms128m"
 WORKDIR /opt/tomcat
 EXPOSE 8080
 ENTRYPOINT ["./bin/catalina.sh", "run"]
+
