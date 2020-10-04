@@ -26,7 +26,7 @@ services:
 
   postgres:
     container_name: intermine_postgres
-    image: edgegreen/inter-postgress:latest
+    image: edgegreen/inter-postgres:latest
     user: ${UID:-1000}:${GID:-1000}
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
